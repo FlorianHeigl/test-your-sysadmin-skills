@@ -1575,6 +1575,27 @@ Useful resources:
 </details>
 
 <details>
+<summary><b>How to scan for new SCSI block devices</b></summary><br>
+
+Use the the sysfs interface to find new devices.
+
+- extending the size by 500MB:
+
+```bash
+for host_adapter in /sys/class/scsi_host/* ; do echo "- - -" > $host_adapter ; done
+```
+for multipath devices one would probably first scan the whole of one bus, then verify connectivity (keeping in mind the linux block device timeouts, then the scan other bus.
+
+in practice, only the most careful people do this. the rest rely on things to work.
+
+
+
+- [Edocs?](????)
+
+</details>
+
+
+<details>
 <summary><b>How to increase the size of LVM partition?</b></summary><br>
 
 Use the `lvextend` command for resize LVM partition.
